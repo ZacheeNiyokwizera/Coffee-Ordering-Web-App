@@ -28,26 +28,26 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
 
   const addToCart = (coffee: CartItem) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === coffee.id);
+      const existingItem = prevCart.find((item) => item._id === coffee._id);
       if (existingItem) {
         return prevCart.map((item) =>
-          item.id === coffee.id
-            ? { ...item, quantity: item.quantity + 1 }
+          item._id === coffee._id
+            ? { ...item, quantity: item.quantity + coffee.quantity }
             : item
         );
       }
-      return [...prevCart, { ...coffee, quantity: 1 }];
+      return [...prevCart, coffee]; // Add coffee with quantity included
     });
   };
 
   const removeFromCart = (coffeeId: string) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== coffeeId));
+    setCart((prevCart) => prevCart.filter((item) => item._id !== coffeeId));
   };
 
   const updateCartItemQuantity = (coffeeId: string, quantity: number) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === coffeeId ? { ...item, quantity } : item
+        item._id === coffeeId ? { ...item, quantity } : item
       )
     );
   };

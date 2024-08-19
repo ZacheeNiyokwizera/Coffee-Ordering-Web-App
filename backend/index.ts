@@ -15,15 +15,16 @@ app.use(
   })
 );
 
-app.use(express.json()); // For parsing application/json
+// For parsing application/json
+app.use(express.json());
 
 // Connect to the database
 connectDB();
 
-// Use the coffee routes
+// Coffee routes
 app.use("/api/coffee", coffeeRoutes);
 
-// Start the server
+// Starting the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
