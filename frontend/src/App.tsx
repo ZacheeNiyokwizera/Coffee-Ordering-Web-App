@@ -1,4 +1,3 @@
-// App.tsx
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import CoffeeList from "./components/CoffeeList";
@@ -11,13 +10,11 @@ const App: React.FC = () => {
   return (
     <CartProvider>
       <Router>
-        <Navbar /> {/* Add Navbar here */}
-        <main>
-          <Routes>
-            <Route path="/" element={<CoffeeList />} />
-            <Route path="/cart" element={<CartPage />} />
-          </Routes>
-        </main>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<CoffeeList />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
       </Router>
     </CartProvider>
   );

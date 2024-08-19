@@ -1,10 +1,7 @@
-// CoffeeList.tsx
 import React, { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import { Coffee } from "../models/Coffee";
 import { fetchCoffees } from "../services/coffeeService";
-import { Link } from "react-router-dom";
-
 import "../App";
 
 const CoffeeList: React.FC = () => {
@@ -12,15 +9,14 @@ const CoffeeList: React.FC = () => {
   const { addToCart } = useCart();
 
   useEffect(() => {
-    const loadCoffees = async () => {
-      try {
-        const coffeeData = await fetchCoffees();
-        setCoffees(coffeeData);
-      } catch (error) {
-        console.error("Failed to fetch coffees:", error);
-      }
+    // Fetch coffee data from the API
+    const fetchCoffees = async () => {
+      const response = await fetch("http://localhost:5000/api/coffee");
+      const data = await response.json();
+      setCoffees(data);
     };
-    loadCoffees();
+
+    fetchCoffees();
   }, []);
 
   return (
@@ -30,11 +26,24 @@ const CoffeeList: React.FC = () => {
           <img src={coffee.image} alt={coffee.name} />
           <h3>{coffee.name}</h3>
           <p>{coffee.description}</p>
-          <p>${coffee.price.toFixed(2)}</p>
-          <button onClick={() => addToCart(coffee)}>Add to Cart</button>
+          <p>${coffee.price}</p>
+          <button
+            onClick={() =>
+              addToCart({
+                id: coffee._id, // Rename _id to id
+                name: coffee.name,
+                price: coffee.price,
+                image: coffee.image,
+                quantity: 1,
+              })
+            }
+          >
+            Add to Cart
+          </button>
         </div>
       ))}
     </div>
   );
 };
+
 export default CoffeeList;

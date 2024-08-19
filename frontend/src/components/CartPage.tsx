@@ -1,36 +1,24 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
-import { Link } from "react-router-dom";
+import CoffeeItem from "./CoffeeItem";
 
 const CartPage: React.FC = () => {
-  const { cart, removeFromCart, clearCart, getTotalPrice } = useCart();
-
-  const handleOrder = () => {
-    // To do: Handle backend Logic here
-    console.log("Order placed");
-  };
+  const { cart, totalPrice, totalQuantity } = useCart();
 
   return (
     <div className="cart-page">
-      <h1>Your Cart</h1>
-      <ul>
-        {cart.map((coffee) => (
-          <li key={coffee._id}>
-            <img src={coffee.image} alt={coffee.name} width={50} height={50} />
-            <div>
-              <h2>{coffee.name}</h2>
-              <p>${coffee.price.toFixed(2)}</p>
-              <button onClick={() => removeFromCart(coffee._id)}>Remove</button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <h2>Your Cart</h2>
+      <div>
+        {cart.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          cart.map((coffee) => <CoffeeItem key={coffee.id} coffee={coffee} />)
+        )}
+      </div>
       <div className="cart-summary">
-        <h2>Total: ${getTotalPrice().toFixed(2)}</h2>
-        <button onClick={() => clearCart()}>Clear Cart</button>
-        <Link to="/checkout">
-          <button>Proceed to Checkout</button>
-        </Link>
+        <h3>Total Items: {totalQuantity}</h3>
+        <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
+        <button>Order</button>
       </div>
     </div>
   );
