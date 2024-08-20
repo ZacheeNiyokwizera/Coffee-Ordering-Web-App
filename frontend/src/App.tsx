@@ -6,6 +6,7 @@ import CartPage from "./components/CartPage";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { useCoffeeData } from "./hooks/useCoffeeData";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   const { coffees } = useCoffeeData();
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           <Route path="/" element={<CoffeeList coffees={coffees} />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes>
+        <Footer />
       </Router>
     </CartProvider>
   );

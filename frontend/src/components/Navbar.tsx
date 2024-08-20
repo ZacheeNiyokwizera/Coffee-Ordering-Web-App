@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import "../styles/Navbar.css";
 
 const Navbar: React.FC = () => {
   const { totalQuantity } = useCart();
