@@ -1,19 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/ThankYou.css";
+
 const ThankYou: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="thank-you-container">
-      <div className="thank-you-box">
-        <h1>Thank You!</h1>
-        <p>
+    <div className="thank-you-container d-flex justify-content-center align-items-center min-vh-100">
+      <div className="thank-you-box p-4 border rounded bg-light shadow-sm text-center">
+        <h1 className="mb-4">Thank You!</h1>
+        <p className="mb-4">
           Your order has been received. We'll start processing it right away.
         </p>
-        <button onClick={() => navigate("/")} className="home-button">
-          Back to Home
-        </button>
+        <div className="d-flex flex-column gap-3">
+          <button onClick={() => navigate("/")} className="btn btn-primary">
+            Back to Home
+          </button>
+          <button
+            onClick={() => navigate("/order-history")}
+            className="btn btn-secondary"
+          >
+            View Your Order History
+          </button>
+        </div>
       </div>
     </div>
   );

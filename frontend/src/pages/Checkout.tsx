@@ -6,7 +6,6 @@ import { useCart } from "../context/CartContext";
 import { calculateTotalPrice } from "../utils/calculateTotalPrice";
 import { CartItem } from "../models/CartItem";
 import { Order, OrderItem } from "../models/Order";
-import "../styles/Checkout.css";
 
 const Checkout: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -43,50 +42,62 @@ const Checkout: React.FC = () => {
     };
 
     saveOrderToLocalStorage(userId, order);
-    // Clear the cart
     clearCart();
     navigate("/thank-you");
   };
 
   return (
-    <div className="checkout-page">
-      <h1>Checkout</h1>
-      <p>We need some information to process your order.</p>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleOrder();
-        }}
-      >
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+    <div className="container my-5">
+      <div className="row justify-content-center">
+        <div className="col-md-8 col-lg-6">
+          <div className="checkout-page p-4 border rounded bg-light shadow-sm">
+            <h1 className="text-center mb-4">Checkout</h1>
+            <p className="text-center mb-4">
+              We need some information to process your order.
+            </p>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleOrder();
+              }}
+            >
+              <div className="mb-3">
+                <label className="form-label">Name:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Email:</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Address:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn btn-primary w-100">
+                Pre-Order
+              </button>
+            </form>
+          </div>
         </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Address:</label>
-          <input
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Pre-Order</button>
-      </form>
+      </div>
     </div>
   );
 };

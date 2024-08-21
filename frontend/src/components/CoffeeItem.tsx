@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import { Coffee } from "../models/Coffee";
 import { useCart } from "../context/CartContext";
 import { calculateTotalPrice } from "../utils/calculateTotalPrice";
+import {
+  Card,
+  Button,
+  Row,
+  Col,
+  InputGroup,
+  FormControl,
+} from "react-bootstrap";
 import "../styles/CoffeeItem.css";
 
 interface CoffeeCustomizationProps {
@@ -34,73 +42,123 @@ const CoffeeItem: React.FC<CoffeeCustomizationProps> = ({ coffee }) => {
       totalPrice: finalPrice,
       quantity,
     };
-    addToCart(customizedCoffee); // Add to cart with final price and quantity
+    addToCart(customizedCoffee);
   };
 
   return (
-    <div className="coffee-item">
-      <div className="coffee-info">
-        <img src={coffee.image} alt={coffee.name} />
-        <h3>{coffee.name}</h3>
-        <p>{coffee.description}</p>
-      </div>
-      {/* Display Ingredients */}
-      <div className="ingredients">
-        <strong>Ingredients:</strong> {coffee.ingredients.join(", ")}
-      </div>
+    <Col md={6} lg={4} className="mb-4">
+      <Card className="h-100">
+        <Card.Img variant="top" src={coffee.image} alt={coffee.name} />
+        <Card.Body>
+          <Card.Title>{coffee.name}</Card.Title>
+          <Card.Text>{coffee.description}</Card.Text>
+          <Card.Text>
+            <strong>Ingredients:</strong> {coffee.ingredients.join(", ")}
+          </Card.Text>
 
-      {/* Customization Options */}
-      <div className="customization-options">
-        {Object.keys(coffee.customizationOptions).map((option) => (
-          <div key={option} className="customization-option">
-            <label>{option}</label>
-            <div className="customization-controls">
-              <button
-                className="customization-decrease-button"
-                onClick={() => handleCustomizationChange(option, -1)}
-              >
-                -
-              </button>
-              <span className="customization-value">
-                {customizations[option] || 0}
-              </span>
-              <button
-                className="customization-increase-button"
-                onClick={() => handleCustomizationChange(option, 1)}
-              >
-                +
-              </button>
-            </div>
+          {/* Customization Options */}
+          <div className="mb-3">
+            <Row className="g-2">
+              {/* Create a row for the first line of customization options */}
+              {Object.keys(coffee.customizationOptions)
+                .slice(0, 2)
+                .map((option) => (
+                  <Col xs={6} key={option}>
+                    <div className="customization-item">
+                      <span className="customization-label">{option}:</span>
+                      <InputGroup size="sm" className="customization-controls">
+                        <Button
+                          variant="outline-danger"
+                          onClick={() => handleCustomizationChange(option, -1)}
+                          className="customization-button"
+                        >
+                          -
+                        </Button>
+                        <FormControl
+                          value={customizations[option] || 0}
+                          readOnly
+                          className="text-center customization-input"
+                        />
+                        <Button
+                          variant="outline-secondary"
+                          onClick={() => handleCustomizationChange(option, 1)}
+                          className="customization-button"
+                        >
+                          +
+                        </Button>
+                      </InputGroup>
+                    </div>
+                  </Col>
+                ))}
+            </Row>
+            <Row className="g-2">
+              {/* Create a row for the second line of customization options */}
+              {Object.keys(coffee.customizationOptions)
+                .slice(2)
+                .map((option) => (
+                  <Col xs={6} key={option}>
+                    <div className="customization-item">
+                      <span className="customization-label">{option}:</span>
+                      <InputGroup size="sm" className="customization-controls">
+                        <Button
+                          variant="outline-danger"
+                          onClick={() => handleCustomizationChange(option, -1)}
+                          className="customization-button"
+                        >
+                          -
+                        </Button>
+                        <FormControl
+                          value={customizations[option] || 0}
+                          readOnly
+                          className="text-center customization-input"
+                        />
+                        <Button
+                          variant="outline-secondary"
+                          onClick={() => handleCustomizationChange(option, 1)}
+                          className="customization-button"
+                        >
+                          +
+                        </Button>
+                      </InputGroup>
+                    </div>
+                  </Col>
+                ))}
+              <Col xs={6}>
+                <div className="customization-item">
+                  <span className="customization-label">Quantity:</span>
+                  <InputGroup size="sm" className="customization-controls">
+                    <Button
+                      variant="outline-danger"
+                      onClick={() => handleQuantityChange(-1)}
+                      className="customization-button"
+                    >
+                      -
+                    </Button>
+                    <FormControl
+                      value={quantity}
+                      readOnly
+                      className="text-center customization-input"
+                    />
+                    <Button
+                      variant="outline-secondary"
+                      onClick={() => handleQuantityChange(1)}
+                      className="customization-button"
+                    >
+                      +
+                    </Button>
+                  </InputGroup>
+                </div>
+              </Col>
+            </Row>
           </div>
-        ))}
-      </div>
-
-      {/* Quantity Control */}
-      <div className="coffee-card-bottom">
-        <div className="quantity-controls">
-          <label>Quantity:</label>
-          <br></br>
-          <button
-            className="quantity-decrease-button"
-            onClick={() => handleQuantityChange(-1)}
-          >
-            -
-          </button>
-          <span className="quantity-value">{quantity}</span>
-          <button
-            className="quantity-increase-button"
-            onClick={() => handleQuantityChange(1)}
-          >
-            +
-          </button>
-        </div>
-        <div>
-          <button className="add-to-cart-button" onClick={handleAddToCart}>
+        </Card.Body>
+        <Card.Footer>
+          <Button variant="primary" onClick={handleAddToCart} className="w-100">
             Add to Cart
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+        </Card.Footer>
+      </Card>
+    </Col>
   );
 };
 
