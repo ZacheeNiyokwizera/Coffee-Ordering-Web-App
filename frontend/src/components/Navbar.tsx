@@ -13,6 +13,8 @@ const Navbar: React.FC = () => {
       </Link>
       <div className="nav-links">
         <Link to="/">Home</Link>
+        <Link to="/order-history">Order History</Link>
+
         <Link to="/cart" className="cart-link">
           <i className="fas fa-shopping-cart"></i>
           {totalQuantity > 0 && (

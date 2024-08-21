@@ -3,8 +3,12 @@ import { useCart } from "../context/CartContext";
 import CoffeeItem from "./CoffeeItem";
 import { Link } from "react-router-dom";
 import "../styles/CartPage.css";
+import { useNavigate } from "react-router-dom";
+import EmptyCart from "../components/EmptyCart";
 
 const CartPage: React.FC = () => {
+  const navigate = useNavigate();
+
   const { cart, updateCartItemQuantity, removeFromCart } = useCart();
 
   // Calculate the total price correctly by summing up the total price of each item, considering the quantity
@@ -21,21 +25,31 @@ const CartPage: React.FC = () => {
     return acc + itemTotal;
   }, 0);
 
+  const handleProceedToCheckout = () => {
+    navigate("/checkout");
+  };
+
+  // if (cart.length === 0) {
+  //   return (
+  //     <div className="empty-cart">
+  //       <h2>Your cart is empty</h2>
+  //       <p>Click the button below to add some delicious coffee to your cart!</p>
+  //       <Link to="/">
+  //         <button className="add-coffee-button">Browse Coffees</button>
+  //       </Link>
+  //     </div>
+  //   );
+  // }
+
   if (cart.length === 0) {
-    return (
-      <div className="empty-cart">
-        <h2>Your cart is empty</h2>
-        <p>Click the button below to add some delicious coffee to your cart!</p>
-        <Link to="/">
-          <button className="add-coffee-button">Browse Coffees</button>
-        </Link>
-      </div>
-    );
+    return <EmptyCart />;
   }
+
   return (
     <div className="cart-page">
       <div className="cart-container">
         <div className="cart-header">Your Cart</div>
+
         {cart.map((item) => {
           const customizationCosts = Object.entries(item.customizations)
             .filter(([_, value]) => value > 0)
@@ -107,7 +121,7 @@ const CartPage: React.FC = () => {
         })}
         <div className="cart-summary">
           <h3>Total for All Items: ${totalPrice.toFixed(2)}</h3>
-          <button>Proceed to Checkout</button>
+          <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
         </div>
       </div>
     </div>
