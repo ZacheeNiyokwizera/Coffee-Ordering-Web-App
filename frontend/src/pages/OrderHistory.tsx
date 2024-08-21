@@ -12,18 +12,19 @@ const OrderHistory: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Retrieve orders from localStorage
+    // Retrieve orders from localStorage using userId
     const savedOrders = JSON.parse(localStorage.getItem(userId) || "[]");
     setOrders(savedOrders);
   }, [userId]);
 
   if (orders.length === 0) {
-    return <EmptyOrderHistory />;
+    return <EmptyOrderHistory />; // Show empty state if no orders are found
   }
 
   return (
     <Container className="my-4">
       <h1 className="mb-4">Order History</h1>
+
       {orders.map((order) => (
         <Card className="mb-4" key={order.id}>
           <Card.Body>
@@ -35,7 +36,7 @@ const OrderHistory: React.FC = () => {
             <Card.Subtitle className="mt-4 mb-2">Items:</Card.Subtitle>
             <div className="order-items-list">
               {order.items.map((item, index) => (
-                <Row className="align-items-center mb-3 border  " key={index}>
+                <Row className="align-items-center mb-3 border" key={index}>
                   <Col
                     xs={12}
                     md={4}

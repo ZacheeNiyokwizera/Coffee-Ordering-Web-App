@@ -1,3 +1,5 @@
+// Defines the structure of an item in an order
+
 export interface OrderItem {
   name: string;
   quantity: number;
@@ -7,6 +9,7 @@ export interface OrderItem {
   image: string;
 }
 
+// Defines the structure of an order
 export interface Order {
   id: string;
   items: OrderItem[];

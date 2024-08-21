@@ -1,17 +1,18 @@
 import React from "react";
-import { useCart } from "../context/CartContext";
-import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 import { Button, Card, Col, Row, Container } from "react-bootstrap";
-import "../styles/CartPage.css";
 import { useNavigate } from "react-router-dom";
-import EmptyCart from "../components/EmptyCart";
+import EmptyCart from "../EmptyCart";
 
 const CartPage: React.FC = () => {
+  // Hook to navigate between routes
   const navigate = useNavigate();
+  // Get cart data and actions from context
   const { cart, updateCartItemQuantity, removeFromCart } = useCart();
 
-  // Calculate the total price correctly by summing up the total price of each item, considering the quantity
+  // Calculate the total price of all items in the cart
   const totalPrice = cart.reduce((acc, item) => {
+    // Calculate the total cost of customizations for the item
     const customizationCosts = Object.entries(item.customizations)
       .filter(([_, quantity]) => quantity > 0)
       .reduce(
@@ -20,14 +21,17 @@ const CartPage: React.FC = () => {
         0
       );
 
+    // Calculate the total price for this item (base price + customizations) multiplied by quantity
     const itemTotal = (item.price + customizationCosts) * item.quantity;
     return acc + itemTotal;
   }, 0);
 
+  // Function to navigate to the checkout page
   const handleProceedToCheckout = () => {
     navigate("/checkout");
   };
 
+  // Render empty cart component if there are no items
   if (cart.length === 0) {
     return <EmptyCart />;
   }
@@ -37,6 +41,7 @@ const CartPage: React.FC = () => {
       <h1 className="mb-4">Your Cart</h1>
 
       {cart.map((item) => {
+        // Calculate the costs of customizations for the item
         const customizationCosts = Object.entries(item.customizations)
           .filter(([_, value]) => value > 0)
           .map(([key, value]) => ({
@@ -46,6 +51,7 @@ const CartPage: React.FC = () => {
             totalCost: value * (item.customizationOptions[key].price || 0),
           }));
 
+        // Calculate the total price of the item including customizations
         const itemTotalPrice =
           item.price +
           customizationCosts.reduce(
@@ -57,6 +63,7 @@ const CartPage: React.FC = () => {
           <Card key={item._id} className="mb-3">
             <Row noGutters>
               <Col xs={12} md={4}>
+                {/* Display the image of the coffee item */}
                 <Card.Img variant="top" src={item.image} alt={item.name} />
               </Col>
               <Col xs={12} md={8}>
@@ -65,6 +72,7 @@ const CartPage: React.FC = () => {
                   <Card.Text>{item.description}</Card.Text>
                   <Card.Text>
                     <strong>Customizations:</strong>
+                    {/* Display details of customizations */}
                     {customizationCosts.map((customization) => (
                       <div key={customization.flavor}>
                         {customization.flavor}: {customization.quantity} × $
@@ -90,6 +98,7 @@ const CartPage: React.FC = () => {
                   </Card.Text>
                   <Row className="align-items-center">
                     <Col xs="auto">
+                      {/* Input for updating item quantity */}
                       <div className="d-flex align-items-center">
                         <strong>Quantity:</strong>
                         <input
@@ -114,6 +123,7 @@ const CartPage: React.FC = () => {
                       </div>
                     </Col>
                     <Col xs="auto">
+                      {/* Button for removing the item from the cart */}
                       <Button
                         variant="danger"
                         onClick={() => removeFromCart(item._id)}
@@ -132,6 +142,7 @@ const CartPage: React.FC = () => {
 
       <div className="cart-summary mt-4">
         <h3>Total for All Items: ${totalPrice.toFixed(2)}</h3>
+        {/* Button for proceeding to checkout */}
         <Button
           variant="primary"
           onClick={handleProceedToCheckout}

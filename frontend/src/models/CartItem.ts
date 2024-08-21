@@ -1,9 +1,10 @@
+// Defines the structure of a coffee item in the cart
 export interface CartItem {
   _id: string; // Unique identifier for the coffee
-  name: string; // Name of the coffee
-  description: string; // Description of the coffee
-  price: number; // Base price of the coffee
-  image: string; // Image URL for the coffee
+  name: string;
+  description: string;
+  price: number;
+  image: string;
   ingredients: string[]; // Ingredients of the coffee
   customizationOptions: {
     [key: string]: {

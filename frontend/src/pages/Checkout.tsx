@@ -62,8 +62,11 @@ const Checkout: React.FC = () => {
               }}
             >
               <div className="mb-3">
-                <label className="form-label">Name:</label>
+                <label htmlFor="name" className="form-label">
+                  Name:
+                </label>
                 <input
+                  id="name"
                   type="text"
                   className="form-control"
                   value={name}
@@ -72,8 +75,11 @@ const Checkout: React.FC = () => {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Email:</label>
+                <label htmlFor="email" className="form-label">
+                  Email:
+                </label>
                 <input
+                  id="email"
                   type="email"
                   className="form-control"
                   value={email}
@@ -82,8 +88,11 @@ const Checkout: React.FC = () => {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Address:</label>
+                <label htmlFor="address" className="form-label">
+                  Address:
+                </label>
                 <input
+                  id="address"
                   type="text"
                   className="form-control"
                   value={address}

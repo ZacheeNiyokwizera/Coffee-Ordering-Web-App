@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CoffeeList from "./components/CoffeeList";
+import CoffeeList from "./components/coffeeList/CoffeeList";
 import { CartProvider } from "./context/CartContext";
-import CartPage from "./components/CartPage";
+import CartPage from "./components/cartPage/CartPage";
 import NavigationBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useCoffeeData } from "./hooks/useCoffeeData";
 import Checkout from "./pages/Checkout";
 import ThankYou from "./pages/ThankYou";
 import OrderHistory from "./pages/OrderHistory";
-import NotFound from "./components/NotFound";
+import NotFound from "./components/notFound/NotFound";
 import "./App.css";
 
 const App: React.FC = () => {

@@ -4,7 +4,7 @@ import { useCart } from "../context/CartContext";
 import { Navbar, Nav, Container, Badge } from "react-bootstrap";
 
 const NavigationBar: React.FC = () => {
-  const { totalQuantity } = useCart();
+  const { totalQuantity } = useCart(); // Get the total quantity of items in the cart
 
   return (
     <Navbar bg="secondary" variant="dark" expand="lg">
@@ -35,7 +35,8 @@ const NavigationBar: React.FC = () => {
                   text="dark"
                   className="position-absolute top-0 start-100 translate-middle"
                 >
-                  {totalQuantity}
+                  {totalQuantity}{" "}
+                  {/* Display the total quantity of items in the cart */}
                 </Badge>
               )}
             </Nav.Link>

@@ -1,3 +1,5 @@
+// This interface Defines the structure of a coffee item available in the store
+
 export interface Coffee {
   _id: string;
   name: string;
