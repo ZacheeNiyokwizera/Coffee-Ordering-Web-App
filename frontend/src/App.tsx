@@ -1,4 +1,3 @@
-// src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CoffeeList from "./components/CoffeeList";
@@ -13,7 +12,7 @@ import OrderHistory from "./pages/OrderHistory";
 import "./App.css";
 
 const App: React.FC = () => {
-  const { coffees } = useCoffeeData();
+  const { coffees, loading, error } = useCoffeeData();
   return (
     <CartProvider>
       <Router>
@@ -21,7 +20,16 @@ const App: React.FC = () => {
           <NavigationBar />
           <div className="flex-grow-1">
             <Routes>
-              <Route path="/" element={<CoffeeList coffees={coffees} />} />
+              <Route
+                path="/"
+                element={
+                  <CoffeeList
+                    coffees={coffees}
+                    loading={loading}
+                    error={error}
+                  />
+                }
+              />{" "}
               <Route path="/cart" element={<CartPage />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/order-history" element={<OrderHistory />} />
