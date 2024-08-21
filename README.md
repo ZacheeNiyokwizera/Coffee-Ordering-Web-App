@@ -53,7 +53,7 @@ Frontend:
 
 4. Open your browser and navigate to http://localhost:3000. The Application should be running on localhost port 3000 i.e ```http://localhost:3000/```
 
-Testing : To run tests, use the following command:
+## Testing : To run tests, use the following command:
 
 1. **Backend** : After cloning the repository, cd backend, install the required dependencies and run
    ```npm test``` or ```npx jest backend/getCoffeeController.test.ts```
@@ -61,7 +61,7 @@ Testing : To run tests, use the following command:
 1. **Frontend**: After cloning the repository, install the required dependencies and run
    ```npm test``` or ```npx jest test```
 
-##Testing the main application logic :
+## Testing the main application logic :
 
 I've made sure the core functionality of the application is well-tested. Specifically, I’ve added unit tests for the getCoffee API to ensure it accurately retrieves coffee data. Additionally, I've tested the UI functionalities, including fetching coffees, displaying them, customizing options, and adding items to the cart.
 
@@ -77,15 +77,15 @@ This setup would make the app scalable, easy to maintain, and ready to grow, all
 
 
 
-##Project Structure
+## Project Structure
 
 The project is organized into two main parts: frontend and backend. Below is a detailed description of the structure and purpose of each folder and key files.
 
-##Frontend
+## Frontend
 The frontend directory contains all the code and assets related to the client-side application, built with React.
 
 
-frontend/
+```frontend/
 │
 ├── .gitignore
 ├── package-lock.json
@@ -172,16 +172,16 @@ frontend/
 └── __mocks__/                     # Mocks for testing
     ├── mockData.ts                # Mock data for testing
     ├── react-router-dom.ts        # Mock for react-router-dom
-    └── styleMock.ts               # Mock for CSS modules
+    └── styleMock.ts               # Mock for CSS modules```
 
 
 
-##Backend Project Structure
+## Backend Project Structure
 The backend directory contains the server-side code for the application, including API endpoints, data models, and configuration files. It is organized to separate concerns and make the codebase manageable.
 
 Directory Structure
 
-backend/
+```backend/
 │
 ├── .env                            # Environment variables for configuration (e.g., database URL, API keys)
 ├── getCoffeeController.test.ts      # Unit tests for the coffee retrieval controller
@@ -204,10 +204,10 @@ backend/
 │   └── Coffee.ts                   # Model for coffee data
 │
 └── routes/                         # Route definitions for API endpoints
-    └── coffeeRoutes.ts             # Routes for coffee-related API endpoints
+    └── coffeeRoutes.ts             # Routes for coffee-related API endpoints```
 
 
-##Suggested Features
+## Suggested Features
 
 1. User Authentication and Authorization
 
