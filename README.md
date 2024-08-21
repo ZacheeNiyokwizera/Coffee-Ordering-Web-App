@@ -33,26 +33,26 @@ Backend:
 
 4. Create a copy of the .env file and name it .env, and fill it with the necessary credentials.
 
-5. Run the application: You should already be familiar with running a Node application using your favourite IDE or directly from a terminal/command prompt using `npm run dev`
+5. Run the application: You should already be familiar with running a Node application using your favourite IDE or directly from a terminal/command prompt using ```npm run dev```
 
-6. Open your browser and navigate to `http://localhost:5000/api/coffee`.
+6. Open your browser and navigate to ```http://localhost:5000/api/coffee```.
 
 Frontend:
 
 1. After cloning the repo in step 1 above in the backend section, cd into the root Folder folder and cd frontend
 
-2. Install the dependencies: `npm install`
+2. Install the dependencies: ```npm install```
 
-3. Run the application: ``npm start`
+3. Run the application: ```npm start```
 
-4. Open your browser and navigate to http://localhost:3000. The Application should be running on localhost port 3000 i.e http://localhost:3000/
+4. Open your browser and navigate to http://localhost:3000. The Application should be running on localhost port 3000 i.e ```http://localhost:3000/```
 
 Testing : To run tests, use the following command:
 
 1. Backend : After cloning the repository, cd backend, install the required dependencies and run
-   `npm test` or ``npx jest backend/getCoffeeController.test.ts`
+   ```npm test``` or ```npx jest backend/getCoffeeController.test.ts```
 
 1. Frontend: After cloning the repository, install the required dependencies and run
-   `npm test` or ``npx jest test`
+   ```npm test``` or ```npx jest test```
 
 
