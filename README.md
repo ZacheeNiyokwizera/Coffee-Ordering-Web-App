@@ -5,9 +5,6 @@
 The Coffee Shop Project is a web application that provides a dynamic and interactive way for users to browse, customize, and purchase coffee. It includes predefined coffee types, integration with third-party sources for coffee data, and extensive customization options for users to create their own unique coffee blends.
 
 ## Features
-Here’s how you can integrate the feature about viewing order history into the project description:
-
----
 
 ## Project Description
 
@@ -23,7 +20,30 @@ This project is a coffee ordering application that allows users to explore a var
 
 ---
 
-Feel free to integrate this updated description into your README file or project documentation.
+## Technologies Used
+
+### **Frontend:**
+- **React**: A JavaScript library for building user interfaces. Used to create the interactive and dynamic components of the application.
+- **TypeScript**: A superset of JavaScript that adds static types, helping with code quality and development efficiency.
+- **Bootstrap**: A CSS framework used for styling and responsive design.
+- **React Router**: A library for handling routing and navigation within the React application.
+- **Jest**: A testing framework used for unit testing React components and application logic.
+- **React Testing Library**: A set of utilities for testing React components and their behavior.
+- **Babel**: A JavaScript compiler used to convert ES6+ code into backwards-compatible JavaScript, ensuring compatibility with different browsers.
+
+### **Backend:**
+- **Node.js**: A JavaScript runtime built on Chrome's V8 engine, used for building the server-side logic.
+- **Express**: A web application framework for Node.js, used to create API endpoints and handle HTTP requests.
+- **TypeScript**: Used on the server-side for better type safety and development experience.
+- **Jest**: Used for testing backend logic and API endpoints.
+- **MongoDB**: A NoSQL database used for storing and managing coffee data, user information, and order details.
+- **Mongoose**: An ODM (Object Data Modeling) library for MongoDB and Node.js, used to model application data.
+
+### **Development Tools:**
+- **Babel**: A JavaScript compiler used to ensure compatibility across different environments by transforming modern JavaScript code.
+- **Nodemon**: A utility that automatically restarts the server during development when file changes are detected.
+
+---
 
 ## Installation
 
@@ -234,5 +254,5 @@ Benefits: Simplifies the checkout process and enhances payment security.
 Description: Create an admin interface for managing inventory, orders, and user accounts.
 Benefits: Streamlines administrative tasks and provides valuable insights into application performance.
 
-
+## Thank you for reading 🙏
 
