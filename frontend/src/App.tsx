@@ -9,6 +9,7 @@ import { useCoffeeData } from "./hooks/useCoffeeData";
 import Checkout from "./pages/Checkout";
 import ThankYou from "./pages/ThankYou";
 import OrderHistory from "./pages/OrderHistory";
+import NotFound from "./components/NotFound";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -34,6 +35,7 @@ const App: React.FC = () => {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/order-history" element={<OrderHistory />} />
               <Route path="/thank-you" element={<ThankYou />} />
+              <Route path="*" element={<NotFound />} />{" "}
             </Routes>
           </div>
           <Footer />
