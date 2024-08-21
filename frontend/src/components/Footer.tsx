@@ -1,18 +1,19 @@
 import React from "react";
-import "../styles/Footer.css";
+import { Container, Row, Col } from "react-bootstrap";
+
 const Footer: React.FC = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <p>
-          &copy; {new Date().getFullYear()} Coffee Shop. All rights reserved.
-        </p>
-        <div className="footer-links">
-          <a href="/about">About Us</a>
-          <a href="/contact">Contact</a>
-          <a href="/privacy">Privacy Policy</a>
-        </div>
-      </div>
+    <footer className="bg-secondary text-light py-3 mt-auto">
+      <Container>
+        <Row>
+          <Col className="text-center">
+            <p>
+              &copy; {new Date().getFullYear()} Coffee Shop. All rights
+              reserved.
+            </p>
+          </Col>
+        </Row>
+      </Container>
     </footer>
   );
 };

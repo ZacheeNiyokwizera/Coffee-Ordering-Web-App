@@ -1,20 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/EmptyCart.css";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 const EmptyCart: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="empty-cart-container">
-      <div className="empty-cart-box">
-        <h1>Oops! Your cart is empty</h1>
-        <p>Click the button below to add some delicious coffee to your cart!</p>
-        <button onClick={() => navigate("/")} className="shop-button">
-          Shop Now
-        </button>
-      </div>
-    </div>
+    <Container className="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+      <Row
+        className="text-center p-4 border rounded shadow-sm bg-white"
+        style={{ maxWidth: "500px" }}
+      >
+        <Col>
+          <h1 className="text-warning mb-3">Your cart is empty</h1>
+          <p className="mb-4">
+            Click the button below to add some delicious coffee to your cart!
+          </p>
+          <Button variant="primary" size="lg" onClick={() => navigate("/")}>
+            Shop Now
+          </Button>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
