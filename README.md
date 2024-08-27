@@ -58,22 +58,8 @@ Backend:
 ```npm install```
 
 4. Create a MongoDb database, copy your MongodB connection url and create a .env file.  Name it .env, and fill it with the necessary credentials.
-5. Make a post request to ```http://localhost:5000/add/api/coffee``` with coffee data e.g: 
-```{
-    _id: "66c22c88bb3f82aa464da530",
-    name: "Latte",
-    description: "A creamy coffee made with espresso and steamed milk.",
-    price: 4.5,
-    image: "https://www.foodandwine.com/thmb/CCe2JUHfjCQ44L0YTbCu97ukUzA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Partners-Latte-FT-BLOG0523-09569880de524fe487831d95184495cc.jpg",
-    customizationOptions: {
-        sugar: { type: "free", maxQuantity: 3 },
-        milk: { type: "free", maxQuantity: 3 },
-        foam: { type: "free", maxQuantity: 2 },
-        caramel: { type: "paid", price: 1.0, maxQuantity: 2 },
-        cream: { type: "paid", price: 1.0, maxQuantity: 2 }
-    },
+5. Send a POST request to `http://localhost:5000/add/api/coffee` using [this sample](https://api.myjson.online/v1/records/c33b3149-dabc-452a-94ff-c0110a418043) containing data for 5 coffee entries.
 
-},```
 
 6. Run the application: You should already be familiar with running a Node application using your favourite IDE or directly from a terminal/command prompt using ```npm run dev```
 
