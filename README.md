@@ -1,12 +1,12 @@
-# Coffee Ordering Web Application Project
+# Coffee Ordering Web Application Project 🌎
 
-## Description
+## Description 📝✍
 
 The Coffee Shop Project is a web application that provides a dynamic and interactive way for users to browse, customize, and purchase coffee. It includes predefined coffee types, integration with third-party sources for coffee data, and extensive customization options for users to create their own unique coffee blends.
 
 ## Features
 
-## Project Description
+## Project Description  🧑‍💻📖
 
 This project is a coffee ordering application that allows users to explore a variety of coffee options, customize their drinks, and place orders. Here are the key features:
 
@@ -20,7 +20,7 @@ This project is a coffee ordering application that allows users to explore a var
 
 ---
 
-## Technologies Used
+## Technologies Used 🤖
 
 ### **Frontend:**
 - **React**: A JavaScript library for building user interfaces. Used to create the interactive and dynamic components of the application.
@@ -45,7 +45,7 @@ This project is a coffee ordering application that allows users to explore a var
 
 ---
 
-## Installation
+## Installation 🖥️
 
 Backend:
 
@@ -99,7 +99,7 @@ This setup would make the app scalable, easy to maintain, and ready to grow, all
 
 
 
-## Project Structure
+## Project Structure 🏬
 
 The project is organized into two main parts: frontend and backend. Below is a detailed description of the structure and purpose of each folder and key files.
 
@@ -107,7 +107,8 @@ The project is organized into two main parts: frontend and backend. Below is a d
 The frontend directory contains all the code and assets related to the client-side application, built with React.
 
 
-```frontend/
+```
+frontend/
 │
 ├── .gitignore
 ├── package-lock.json
@@ -194,16 +195,19 @@ The frontend directory contains all the code and assets related to the client-si
 └── __mocks__/                     # Mocks for testing
     ├── mockData.ts                # Mock data for testing
     ├── react-router-dom.ts        # Mock for react-router-dom
-    └── styleMock.ts               # Mock for CSS modules```
+    └── styleMock.ts               # Mock for CSS modules
+```
 
 
+## Backend Project Structure 
 
-## Backend Project Structure
 The backend directory contains the server-side code for the application, including API endpoints, data models, and configuration files. It is organized to separate concerns and make the codebase manageable.
 
 Directory Structure
 
-```backend/
+
+``` 
+backend/
 │
 ├── .env                            # Environment variables for configuration (e.g., database URL, API keys)
 ├── getCoffeeController.test.ts      # Unit tests for the coffee retrieval controller
@@ -226,17 +230,21 @@ Directory Structure
 │   └── Coffee.ts                   # Model for coffee data
 │
 └── routes/                         # Route definitions for API endpoints
-    └── coffeeRoutes.ts             # Routes for coffee-related API endpoints```
+    └── coffeeRoutes.ts             # Routes for coffee-related API endpoints
+```
 
 
-## Suggested Features
+
+> [!TIP] 
+> Suggested Features
+
 
 1. User Authentication and Authorization
 
 Description: Implement user accounts with login and registration functionality.
 Benefits: Provides personalized user experiences and secure access to order history.
 
-2. Order Tracking
+2. Order Tracking 
 
 Description: Add real-time order tracking to monitor the status from processing to delivery.
 Benefits: Enhances transparency and improves user satisfaction by keeping customers informed.
@@ -255,6 +263,7 @@ Benefits: Simplifies the checkout process and enhances payment security.
 
 Description: Create an admin interface for managing inventory, orders, and user accounts.
 Benefits: Streamlines administrative tasks and provides valuable insights into application performance.
+
 
 ## Thank you for reading 🙏
 
